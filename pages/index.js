@@ -1,12 +1,15 @@
 import { getCookie, removeCookies, setCookies } from "cookies-next";
+import { useState } from "react";
 
 function App() {
+  const [cookieValue, setCookieValue] = useState("");
+
   const handleAdd = () => {
     setCookies("abc", "Next Test Cookie", { path: "/" });
   };
 
   const handleRead = () => {
-    console.log(getCookie("abc", { path: "/" }));
+    setCookieValue(getCookie("abc", { path: "/" }));
   };
 
   const handleRemove = () => {
@@ -19,6 +22,8 @@ function App() {
       <button onClick={handleAdd}>Add Cookie</button> &nbsp;
       <button onClick={handleRead}>Read Cookie</button> &nbsp;
       <button onClick={handleRemove}>Remove Cookie</button>
+      <br />
+      <div>Cookie: {cookieValue}</div>
     </div>
   );
 }
