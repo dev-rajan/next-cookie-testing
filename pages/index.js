@@ -5,7 +5,10 @@ function App() {
   const [cookieValue, setCookieValue] = useState("");
 
   const handleAdd = () => {
-    setCookies("abc", "Next Test Cookie", { path: "/" });
+    setCookies("abc", "Next Test Cookie", {
+      path: "/",
+      domain: ".netlify.app",
+    });
   };
 
   const handleRead = () => {
