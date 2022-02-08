@@ -27,12 +27,38 @@ function App() {
     });
   };
 
+  const handleNormalAdd = () => {
+    setCookies("abcNormal", "Next Test Cookie", {
+      path: "/",
+    });
+  };
+
+  const handleNormalRead = () => {
+    setCookieValue(
+      getCookie("abcNormal", {
+        path: "/",
+      })
+    );
+  };
+
+  const handleNormalRemove = () => {
+    removeCookies("abcNormal", {
+      path: "/",
+    });
+  };
+
   return (
     <div className="App">
-      <h1>PROGRAMMIZ SESSION COOKIE TEST IN NEXTJS</h1>
+      <h1>PROGRAMMIZ CROSS SESSION COOKIE TEST IN NEXTJS</h1>
       <button onClick={handleAdd}>Add Cookie</button> &nbsp;
       <button onClick={handleRead}>Read Cookie</button> &nbsp;
       <button onClick={handleRemove}>Remove Cookie</button>
+      <br />
+      <div>Cookie: {cookieValue}</div>
+      <h1>PROGRAMMIZ LOCAL SESSION COOKIE TEST IN NEXTJS</h1>
+      <button onClick={handleNormalAdd}>Add Normal Cookie</button> &nbsp;
+      <button onClick={handleNormalRead}>Read Normal Cookie</button> &nbsp;
+      <button onClick={handleNormalRemove}>Remove Normal Cookie</button>
       <br />
       <div>Cookie: {cookieValue}</div>
     </div>
