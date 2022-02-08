@@ -6,7 +6,7 @@ function App() {
   const [normalCookie, setNormalCookie] = useState("");
 
   const handleAdd = () => {
-    setCookies("abc", "Next JS Test Cookie", {
+    setCookies("abc", "Cross Domain Cookie", {
       path: "/",
       domain: process.env.NEXT_PUBLIC_DOMAIN,
     });
@@ -28,7 +28,7 @@ function App() {
   };
 
   const handleNormalAdd = () => {
-    setCookies("abcNormal", "Next Test Cookie", {
+    setCookies("abcNormal", "Normal Local Cookie", {
       path: "/",
     });
   };
