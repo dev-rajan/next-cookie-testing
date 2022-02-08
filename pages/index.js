@@ -15,7 +15,6 @@ function App() {
     setCookieValue(
       getCookie("abc", {
         path: "/",
-        domain: process.env.NEXT_PUBLIC_DOMAIN,
       })
     );
   };
@@ -23,7 +22,6 @@ function App() {
   const handleRemove = () => {
     removeCookies("abc", {
       path: "/",
-      domain: process.env.NEXT_PUBLIC_DOMAIN,
     });
   };
 
@@ -49,13 +47,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>PROGRAMMIZ CROSS SESSION COOKIE TEST IN NEXTJS</h1>
+      <h1>
+        {process.env.NEXT_PUBLIC_DOMAIN} CROSS SESSION COOKIE TEST IN NEXTJS
+      </h1>
       <button onClick={handleAdd}>Add Cookie</button> &nbsp;
       <button onClick={handleRead}>Read Cookie</button> &nbsp;
       <button onClick={handleRemove}>Remove Cookie</button>
       <br />
       <div>Cookie: {cookieValue}</div>
-      <h1>PROGRAMMIZ LOCAL SESSION COOKIE TEST IN NEXTJS</h1>
+      <h1>
+        {process.env.NEXT_PUBLIC_DOMAIN} LOCAL SESSION COOKIE TEST IN NEXTJS
+      </h1>
       <button onClick={handleNormalAdd}>Add Normal Cookie</button> &nbsp;
       <button onClick={handleNormalRead}>Read Normal Cookie</button> &nbsp;
       <button onClick={handleNormalRemove}>Remove Normal Cookie</button>
