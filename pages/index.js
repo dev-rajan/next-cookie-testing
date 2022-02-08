@@ -7,16 +7,24 @@ function App() {
   const handleAdd = () => {
     setCookies("abc", "Next Test Cookie", {
       path: "/",
-      domain: ".netlify.app",
+      domain: process.env.NEXT_PUBLIC_DOMAIN,
     });
   };
 
   const handleRead = () => {
-    setCookieValue(getCookie("abc", { path: "/" }));
+    setCookieValue(
+      getCookie("abc", {
+        path: "/",
+        domain: process.env.NEXT_PUBLIC_DOMAIN,
+      })
+    );
   };
 
   const handleRemove = () => {
-    removeCookies("abc", { path: "/" });
+    removeCookies("abc", {
+      path: "/",
+      domain: process.env.NEXT_PUBLIC_DOMAIN,
+    });
   };
 
   return (
