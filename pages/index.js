@@ -1,18 +1,19 @@
-import { getCookie, removeCookies, setCookies } from "cookies-next";
 import { useState } from "react";
+import { getCookie, removeCookies, setCookies } from "cookies-next";
 
 function App() {
-  const [cookieValue, setCookieValue] = useState("");
+  const [crossCookie, setCrossCookie] = useState("");
+  const [normalCookie, setNormalCookie] = useState("");
 
   const handleAdd = () => {
-    setCookies("abc", "Next Test Cookie", {
+    setCookies("abc", "Next JS Test Cookie", {
       path: "/",
       domain: process.env.NEXT_PUBLIC_DOMAIN,
     });
   };
 
   const handleRead = () => {
-    setCookieValue(
+    setCrossCookie(
       getCookie("abc", {
         path: "/",
       })
@@ -33,7 +34,7 @@ function App() {
   };
 
   const handleNormalRead = () => {
-    setCookieValue(
+    setNormalCookie(
       getCookie("abcNormal", {
         path: "/",
       })
@@ -55,7 +56,7 @@ function App() {
       <button onClick={handleRead}>Read Cookie</button> &nbsp;
       <button onClick={handleRemove}>Remove Cookie</button>
       <br />
-      <div>Cookie: {cookieValue}</div>
+      <div>Cookie: {crossCookie}</div>
       <h1>
         {process.env.NEXT_PUBLIC_DOMAIN} LOCAL SESSION COOKIE TEST IN NEXTJS
       </h1>
@@ -63,7 +64,7 @@ function App() {
       <button onClick={handleNormalRead}>Read Normal Cookie</button> &nbsp;
       <button onClick={handleNormalRemove}>Remove Normal Cookie</button>
       <br />
-      <div>Cookie: {cookieValue}</div>
+      <div>Cookie: {normalCookie}</div>
     </div>
   );
 }
